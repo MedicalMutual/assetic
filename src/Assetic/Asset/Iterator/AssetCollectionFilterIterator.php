@@ -47,6 +47,7 @@ class AssetCollectionFilterIterator extends \RecursiveFilterIterator
      *
      * @return Boolean Returns true if we have not seen this asset yet
      */
+    #[\ReturnTypeWillChange]
     public function accept()
     {
         $asset = $this->getInnerIterator()->current(true);
@@ -77,6 +78,7 @@ class AssetCollectionFilterIterator extends \RecursiveFilterIterator
     /**
      * Passes visited objects and source URLs to the child iterator.
      */
+    #[\ReturnTypeWillChange]
     public function getChildren()
     {
         return new self($this->getInnerIterator()->getChildren(), $this->visited, $this->sources);
